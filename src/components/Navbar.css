@@ -1,0 +1,133 @@
+nav{
+    display: grid;
+    place-items: center;
+    height: 5rem;
+    width: 100vw;
+    background: var(--color-primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.logo img{
+    width: 10rem;
+}
+
+.nav_container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav_toggle-btn{
+    display: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.nav_toggle-btn svg{
+    color: var(--color-gray-100);
+}
+
+.nav_links{
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.nav_links a{
+    transition: var(--transition);
+}
+.nav_links a:hover{
+    color: var(--color-secondary);
+}
+
+.active-nav{
+    position: relative;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.active-nav::after{
+    content: "";
+    width: 1.2rem;
+    display: block;
+    height: 1.2rem;
+    background: var(--color-primary);
+    position: absolute;
+    left: calc(50% - 0.6rem);
+    transform: rotate(45deg);
+    margin-top: 0.9rem;
+}
+
+
+/* media queries */
+@media (max-width:1024px) {
+    .nav_toggle-btn{
+        display: inline-block;        
+    }
+    .nav_links{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--color-primary);
+        padding: 0.2rem;
+        perspective: 400px;
+    }
+
+    .nav_links li{
+        box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.4);
+        padding: 1rem 3rem;
+        animation: navAnimation 600ms ease forwards;
+        transform: rotateX(90deg);
+        opacity: 0;
+        transform-origin: top;
+    }
+
+    .nav_links li:nth-child(2){
+        animation-delay: 200ms;
+    }
+    .nav_links li:nth-child(3){
+        animation-delay: 400ms;
+    }
+    .nav_links li:nth-child(4){
+        animation-delay: 600ms;
+    }
+    .nav_links li:nth-child(5){
+        animation-delay: 800ms;
+    }
+    .nav_links li:nth-child(6){
+        animation-delay: 1s;
+    }
+    .nav_links li:nth-child(7){
+        animation-delay: 1.2s;
+    }
+
+    @keyframes navAnimation {
+        to{
+            transform: rotateX(0);
+            opacity: 1;
+        }
+    }
+
+    .nav_links a{
+        color: var(--color-gray-100);
+    }
+
+    .active-nav::after{
+        display: none;
+    }
+    .show_nav{
+        display: flex;
+    }
+
+    .hide_nav{
+        display: none;
+    }
+
+}

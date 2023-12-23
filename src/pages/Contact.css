@@ -1,0 +1,36 @@
+.contact_container{
+    display: grid;
+    place-items: center;
+}
+
+.contact_wrapper{
+    width: fit-content;
+    display: flex;
+    gap: 2rem;
+}
+
+.contact_wrapper a{
+    font-size: 2rem;
+    background: var(--color-primary);
+    border: 2px solid transparent;
+    transition: var(--transition);
+    padding: 1rem 1.8rem;
+    border-radius: 1.3rem;
+}
+
+.contact_wrapper a:hover{
+    background: transparent;
+    border-color: var(--color-gray-100);
+}
+
+/***media query (small screens)***/
+@media screen and (max-width:600px) {
+    .contact_wrapper{
+        gap: 1.5rem;
+    }
+    .contact_wrapper a{
+        font-size: 1.2rem;
+        padding: 0.6rem 1.1rem;
+        border-radius: 1rem;
+    }
+}
